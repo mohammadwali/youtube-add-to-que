@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Youtube playlist</title>
+  <style media="screen">
+    /* Custom your style */
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background: #ebebeb;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #444;
+      position: relative;
+      -webkit-text-size-adjust: none;
+    }
+
+    i.fa span {
+      font-size: 16px;
+    }
+
+    body * {
+      text-shadow: none;
+    }
+
+    #ibacordotcom-content {
+      padding: 0 100px;
+    }
+
+    iframe,
+    input,
+    textarea,
+    button {
+      border: 0
+    }
+
+    h1 {
+      line-height: 34px;
+      font-weight: bold;
+      margin: 10px 0 10px 0;
+      font-size: 34px;
+    }
+
+    span.ibacordotcom-nav-title {
+      font-size: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    hr {
+      border: 0;
+      height: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .ibacordotcom-vid-top hr {
+      border: 0;
+      height: 0;
+      border-top: 2px solid rgba(0, 0, 0, 0.7);
+      border-bottom: 1px solid rgba(150, 150, 150, 0.3);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a img {
+      border: 0;
+    }
+
+    .ibacordotcom-unit {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      vertical-align: top;
+      overflow: hidden;
+      *overflow: visible;
+    }
+
+    .ibacordotcom-vid-katuhu {
+      width: 33.50%;
+      float: right
+    }
+
+    .fa a,
+    a i.fa,
+    a span.ibacordotcom-uploader {
+      color: #444;
+    }
+
+    .ibacordotcom-vid-kenca {
+      width: 66.50%;
+    }
+
+    .item-number {
+      font-size: 10px;
+      float: left;
+      line-height: 41px;
+      margin: 0 2px;
+      text-align: center;
+      width: 24px;
+      padding: 2px;
+    }
+
+    .ibacordotcom_youtube_thumb {
+      float: left;
+      margin-right: 10px;
+      position: relative;
+      overflow: hidden;
+      background: #f1f1f1;
+      font-size: 0;
+      vertical-align: middle;
+      display: inline-block;
+      width: 72px;
+      height: auto;
+    }
+
+    .thumb_container {
+      padding-bottom: 56.25%;
+    }
+
+    .thumb_wrap::after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+
+    .thumb_wrap {
+      position: absolute;
+      _position: static;
+      bottom: -100px;
+      top: -100px;
+      left: -100px;
+      right: -100px;
+      text-align: center;
+      white-space: nowrap;
+      word-break: normal;
+    }
+
+    .ibacordotcom-vid-box {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 10px;
+      padding: 20px;
+      display: block;
+      overflow: hidden;
+      *overflow: visible;
+    }
+
+    .ibacordotcom-vid-box-user {
+      margin-bottom: 35px;
+    }
+
+    #ibacordotcom-user-img {
+      float: left;
+      margin-right: 10px
+    }
+
+    .ibacordotcom-play {
+      margin: 0;
+      padding: 10px 0 10px;
+      display: block;
+      -webkit-user-select: none;
+      overflow: hidden;
+      *overflow: visible;
+    }
+
+    .ibacordotcom-play.active {
+      background-color: #3a3a3a;
+    }
+
+    .ibacordotcom-play.active .item-number {
+      color: #c03636;
+      line-height: 40px;
+    }
+
+    .ibacordotcom-play.active .ibacordotcom_youtube_thumb {
+      border: 2px solid #c03636;
+      box-sizing: border-box;
+    }
+
+    .ibacordotcom-play img {
+      -webkit-user-drag: none;
+    }
+
+    div.ibacordotcom-vid-top {
+      color: #c0c0c0;
+      background: #1a1a1a;
+      padding: 20px;
+      display: block;
+      overflow: hidden;
+      *overflow: visible;
+    }
+
+    #playlistWrapper {
+      color: #cacaca;
+      background: #222222;
+      display: block;
+      overflow: auto;
+      height: 500px;
+    }
+
+    span.ibacordotcom-author {
+      color: #767676;
+      font-size: 12px;
+      display: block;
+      margin: 3px 0;
+    }
+
+    .ibacordotcom_youtube_thumb img {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    div.ibacordotcom-play:hover {
+      background: #525252;
+    }
+
+    .ibacordotcom-vid-active {
+      background: #3a3a3a;
+    }
+
+    .ibacordotcom-vid-active img {
+      border: 2px solid #e42b28;
+    }
+
+    .ibacordotcom_vid_prev,
+    .ibacordotcom_vid_next,
+    .ibacordotcom-play {
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    iframe.ibacordotcom-vid-iframe {
+      width: 100%;
+      height: 500px
+    }
+
+    div#playlistWrapper::-webkit-scrollbar {
+      width: 10px;
+      height: 9px;
+    }
+
+    div#playlistWrapper::-webkit-scrollbar-thumb {
+      border-left-color: #8e8e8e;
+      background: #8e8e8e;
+    }
+
+    div#playlistWrapper::-webkit-scrollbar-track {
+      border-left-color: #434343;
+      background: #434343;
+      -webkit-box-shadow: inset 0 0 1px #434343;
+    }
+
+    .drag-handler-wrapper {
+      width: 20px;
+      float: right;
+      margin: -10px 0 0;
+      display: block;
+      vertical-align: middle;
+      padding: 15px;
+      cursor: -webkit-grab;
+      position: relative;
+      height: 40px;
+      margin-bottom: -10px;
+    }
+
+    div.ibacordotcom-play:hover .drag-handler-wrapper {
+      background-color: #353535;
+    }
+
+    .drag-handler {
+      background: url(img/drag-handler.png) center center no-repeat;
+      width: 20px;
+      height: 31px;
+    }
+
+    @media only screen and (min-width: 960px) and (max-width: 1045px) {
+      h1 {
+        font-size: 26px;
+        line-height: 24px;
+      }
+      #ibacordotcom-content {
+        padding: 50px
+      }
+      .ibacordotcom-vid-katuhu {
+        width: 35%
+      }
+      .ibacordotcom-vid-kenca {
+        width: 65%
+      }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+      body {
+        font-size: 14px;
+        line-height: 24px
+      }
+      h1 {
+        font-size: 20px;
+        line-height: 20px;
+      }
+      #ibacordotcom-content {
+        padding: 10px
+      }
+      .ibacordotcom-vid-katuhu {
+        width: 35%
+      }
+      .ibacordotcom-vid-kenca {
+        width: 65%
+      }
+    }
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+      body {
+        font-size: 14px;
+        line-height: 24px
+      }
+      h1 {
+        font-size: 18px;
+        line-height: 20px;
+      }
+      #ibacordotcom-content {
+        padding: 5px
+      }
+      .ibacordotcom-vid-katuhu {
+        width: 100%
+      }
+      .ibacordotcom-vid-kenca {
+        width: 100%;
+        margin-bottom: 20px
+      }
+      iframe.ibacordotcom-vid-iframe {
+        height: 450px;
+      }
+    }
+
+    @media screen and (max-width:479px) {
+      body {
+        font-size: 12px;
+        line-height: 22px
+      }
+      #ibacordotcom-content {
+        padding: 0
+      }
+      h1 {
+        font-size: 16px;
+        line-height: 18px;
+      }
+      .ibacordotcom-vid-box {
+        padding: 5px
+      }
+      .ibacordotcom-vid-katuhu {
+        margin: 0
+      }
+      .ibacordotcom-vid-kenca {
+        margin: 0 0 20px 0
+      }
+      .ibacordotcom-unit {
+        width: auto;
+        margin-left: 0;
+        display: block;
+        margin-top: 0
+      }
+      iframe.ibacordotcom-vid-iframe {
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="ibacordotcom-content">
+    <div class="ibacordotcom-unit ibacordotcom-vid-kenca">
+      <div class="ibacordotcom_vid_play">
+        <div class="ibacordotcom-vid-iframe" id="player"></div>
+      </div>
+    </div>
+    <div class="ibacordotcom-unit ibacordotcom-vid-katuhu">
+      <div class="ibacordotcom_youtube_channels">
+        <!-- PLAYLIST -->
+        <div class="ibacordotcom-vid-bottom" id="playlistWrapper">
+          <!-- <div class="ibacordotcom-play" data-vvv="ZizjCT4bN1o">
+            <div class="ibacordotcom_youtube_thumb">
+              <img src="https://i.ytimg.com/vi/ZizjCT4bN1o/default.jpg" alt="ibacor">
+              <span class="ibacordotcom-vid-tm0"></span>
+            </div>Music Videos In Real Life - Duke Dumont - I Got U ft. Jax Jones
+          </div>
+          <div class="ibacordotcom-play" data-vvv="lm6UqjsNUj8">
+            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/lm6UqjsNUj8/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm1"></span></div>Music Videos In Real Life - Calvin Harris - Summer</div>
+          <div class="ibacordotcom-play" data-vvv="IVx1eh4vwi0">
+            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/IVx1eh4vwi0/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm2"></span></div>Music Videos In Real Life - Sigala - Sweet Lovin' ft. Bryn Christopher</div>
+          <div class="ibacordotcom-play" data-vvv="rc24nRxZQEg">
+            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/rc24nRxZQEg/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm3"></span></div>VVV - Nina Nesbitt: What Are You Talking About?!</div>
+          <div class="ibacordotcom-play" data-vvv="kxqSjDt0-Lc">
+            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/kxqSjDt0-Lc/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm4"></span></div>VVV with ZAYN, Justin Bieber, Nina Nesbitt, One Direction, Jack Garratt, Grimes & more...</div>
+          <div class="ibacordotcom-play" data-vvv="kxqSjDt0-Lc">
+            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/kxqSjDt0-Lc/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm4"></span></div>VVV with ZAYN, Justin Bieber, Nina Nesbitt, One Direction, Jack Garratt, Grimes & more...</div> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="http://www.youtube.com/player_api"></script>
+
+  <script>
+    // create youtube player
+    var player;
+    var videoIds = ["iwYGi7YG4Js", "OQlnsg1jw_o", "yiuYmPDLbk0"];
+    var youtubeApiKey = "AIzaSyCbNX5WnwPLn30DMaDZlJd0gAYoEqYm1BM";
+    var playlistWrapper = document.getElementById("playlistWrapper");
+    var currentPlaylistData = {};
+    var YToptions = {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    };
+    var currentPlaying = {}
+
+    function clone(obj) {
+      if (obj === null || typeof(obj) !== 'object' || 'isActiveClone' in obj)
+        return obj;
+
+      if (obj instanceof Date)
+        var temp = new obj.constructor(); //or new Date(obj);
+      else
+        var temp = obj.constructor();
+
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+          obj['isActiveClone'] = null;
+          temp[key] = clone(obj[key]);
+          delete obj['isActiveClone'];
+        }
+      }
+
+      return temp;
+    }
+
+    function each(obj, callback) {
+      var i = 0;
+      if (obj == ("[object Array]" === Object.prototype.toString.apply(obj))) {
+        for (; i < obj.length; i++) {
+          value = callback.call(obj[i], i, obj[i]);
+          if (value === false) {
+            break;
+          }
+        }
+      } else {
+        for (i in obj) {
+          value = callback.call(obj[i], i, obj[i]);
+          if (value === false) {
+            break;
+          }
+        }
+      }
+      return obj;
+    };
+
+
+    function onYouTubePlayerAPIReady() {
+      var options = clone(YToptions);
+      options.events.onReady = onPlayerReady;
+      refreshPlaylist();
+      player = new YT.Player('player', options);
+    }
+
+    function loadVideo(videoId) {
+      currentPlaying.id = videoId;
+      currentPlaying.index = videoIds.indexOf(videoId);
+      player.loadVideoById(videoId);
+    }
+
+
+    function addToQue(videoId) {
+      videoIds.push(videoId);
+      playlistWrapper.innerHTML = "";
+      refreshPlaylist();
+    }
+
+    function refreshPlaylist() {
+      var video_ids = videoIds.join(",");
+      var apiUrl = "https://www.googleapis.com/youtube/v3/videos?id=" + video_ids + "&key=" + youtubeApiKey + "&part=snippet";
+
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        var response = JSON.parse(xhr.responseText);
+        currentPlaylistData = response;
+        refreshPlaylistView(response.items);
+      }
+      xhr.open("GET", apiUrl);
+      xhr.send();
+    }
+
+
+    function playNext() {
+      if (currentPlaying.id != "") {
+        var nextVideoId = videoIds[(currentPlaying.index + 1)];
+        if (typeof nextVideoId != "undefined") {
+          loadVideo(nextVideoId);
+        } else {
+          currentPlaying.id = "";
+          currentPlaying.index = 0;
+          refreshPlaylistView();
+        }
+      }
+    }
+
+    function refreshPlaylistView(items) {
+      items = (typeof items == "undefined") ? currentPlaylistData.items : items;
+      playlistWrapper.innerHTML = "";
+      each(items, function(index, current) {
+        //  console.log("items", index, current);
+        appendVideo(current, index);
+      })
+    }
+
+    function appendVideo(data, index) {
+
+      var indexOrIcon = (currentPlaying.id == data.id) ? "&#9654;" : (parseInt(index) + 1);
+      var activeClass = (currentPlaying.id == data.id) ? "active" : "";
+
+      var template = '<div class="ibacordotcom-play ' + activeClass + '" data-index="' + videoIds.indexOf(data.id) + '" data-vid="' + data.id + '">\
+      <div class="item-number">' + indexOrIcon +
+        '</div>\
+      <div class="drag-handler-wrapper"><div class="drag-handler"></div></div>\
+      <div class="ibacordotcom_youtube_thumb"> \
+           <div class="thumb_container">\
+           <div class="thumb_wrap">\
+             <img src="' +
+        data.snippet.thumbnails.default.url + '" width="72">\
+          </div>\
+          </div>\
+      </div>\
+    ' + data.snippet.title + '\
+    <span class="ibacordotcom-author">\
+          ' + data.snippet.channelTitle +
+        '\
+        </span>\
+  </div>';
+      playlistWrapper.innerHTML += template;
+    }
+
+
+    // autoplay video
+    function onPlayerReady(event) {
+      console.log("on player ready");
+      event.target.stopVideo();
+      loadVideo(videoIds[0])
+    }
+
+    // when video ends
+    function onPlayerStateChange(event) {
+      console.log("playerstateChange", event, event.data)
+      if (event.data === -1) {
+        refreshPlaylistView();
+      }
+      if (event.data === 0) {
+        playNext();
+      }
+    }
+
+
+    //binding the click event for playlist items
+    document.addEventListener("click", function(event) {
+      // retrieve an event if it was called manually
+      event = event || window.event;
+
+      // retrieve the related element
+      var el = event.target || event.srcElement;
+
+      if (el.className.split(" ").indexOf("ibacordotcom-play") != -1) {
+
+        //get video details
+        var videoId = el.getAttribute("data-vid");
+        var videoIndex = el.getAttribute("data-index");
+
+        //load the selected video
+        if (currentPlaying.id != videoId) loadVideo(videoId);
+      }
+
+
+    });
+  </script>
+</body>
+
+</html>
