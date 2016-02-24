@@ -4,8 +4,231 @@
 <head>
   <meta charset="utf-8">
   <title>Youtube playlist</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
   <style media="screen">
-    /* Custom your style */
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v15/ek4gzZ-GeXAPcSbHtCeQI_esZW2xOQ-xsNqO47m55DA.woff2)format('woff2');
+      unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v15/mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2)format('woff2');
+      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v15/-2n2p-_Y08sg57CNWQfKNvesZW2xOQ-xsNqO47m55DA.woff2)format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v15/u0TOpm082MNkS5K0Q4rhqvesZW2xOQ-xsNqO47m55DA.woff2)format('woff2');
+      unicode-range: U+0370-03FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v15/NdF9MtnOpLzo-noMoG0miPesZW2xOQ-xsNqO47m55DA.woff2)format('woff2');
+      unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v15/Fcx7Wwv8OzT71A3E1XOAjvesZW2xOQ-xsNqO47m55DA.woff2)format('woff2');
+      unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Roboto Regular'), local('Roboto-Regular'), url(//fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2)format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Roboto Medium'), local('Roboto-Medium'), url(//fonts.gstatic.com/s/roboto/v15/ZLqKeelYbATG60EpZBSDyxJtnKITppOI_IvcXXDNrsc.woff2)format('woff2');
+      unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Roboto Medium'), local('Roboto-Medium'), url(//fonts.gstatic.com/s/roboto/v15/oHi30kwQWvpCWqAhzHcCSBJtnKITppOI_IvcXXDNrsc.woff2)format('woff2');
+      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Roboto Medium'), local('Roboto-Medium'), url(//fonts.gstatic.com/s/roboto/v15/rGvHdJnr2l75qb0YND9NyBJtnKITppOI_IvcXXDNrsc.woff2)format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Roboto Medium'), local('Roboto-Medium'), url(//fonts.gstatic.com/s/roboto/v15/mx9Uck6uB63VIKFYnEMXrRJtnKITppOI_IvcXXDNrsc.woff2)format('woff2');
+      unicode-range: U+0370-03FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Roboto Medium'), local('Roboto-Medium'), url(//fonts.gstatic.com/s/roboto/v15/mbmhprMH69Zi6eEPBYVFhRJtnKITppOI_IvcXXDNrsc.woff2)format('woff2');
+      unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Roboto Medium'), local('Roboto-Medium'), url(//fonts.gstatic.com/s/roboto/v15/oOeFwZNlrTefzLYmlVV1UBJtnKITppOI_IvcXXDNrsc.woff2)format('woff2');
+      unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Roboto Medium'), local('Roboto-Medium'), url(//fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2)format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Roboto Italic'), local('Roboto-Italic'), url(//fonts.gstatic.com/s/roboto/v15/WxrXJa0C3KdtC7lMafG4dRTbgVql8nDJpwnrE27mub0.woff2)format('woff2');
+      unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Roboto Italic'), local('Roboto-Italic'), url(//fonts.gstatic.com/s/roboto/v15/OpXUqTo0UgQQhGj_SFdLWBTbgVql8nDJpwnrE27mub0.woff2)format('woff2');
+      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Roboto Italic'), local('Roboto-Italic'), url(//fonts.gstatic.com/s/roboto/v15/1hZf02POANh32k2VkgEoUBTbgVql8nDJpwnrE27mub0.woff2)format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Roboto Italic'), local('Roboto-Italic'), url(//fonts.gstatic.com/s/roboto/v15/cDKhRaXnQTOVbaoxwdOr9xTbgVql8nDJpwnrE27mub0.woff2)format('woff2');
+      unicode-range: U+0370-03FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Roboto Italic'), local('Roboto-Italic'), url(//fonts.gstatic.com/s/roboto/v15/K23cxWVTrIFD6DJsEVi07RTbgVql8nDJpwnrE27mub0.woff2)format('woff2');
+      unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Roboto Italic'), local('Roboto-Italic'), url(//fonts.gstatic.com/s/roboto/v15/vSzulfKSK0LLjjfeaxcREhTbgVql8nDJpwnrE27mub0.woff2)format('woff2');
+      unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Roboto Italic'), local('Roboto-Italic'), url(//fonts.gstatic.com/s/roboto/v15/vPcynSL0qHq_6dX7lKVByfesZW2xOQ-xsNqO47m55DA.woff2)format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(//fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0TTOQ_MqJVwkKsUn0wKzc2I.woff2)format('woff2');
+      unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(//fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0TUj_cnvWIuuBMVgbX098Mw.woff2)format('woff2');
+      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(//fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0UbcKLIaa1LC45dFaAfauRA.woff2)format('woff2');
+      unicode-range: U+1F00-1FFF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(//fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0Wo_sUJ8uO4YLWRInS22T3Y.woff2)format('woff2');
+      unicode-range: U+0370-03FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(//fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0b6up8jxqWt8HVA3mDhkV_0.woff2)format('woff2');
+      unicode-range: U+0102-0103, U+1EA0-1EF1, U+20AB;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(//fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0SYE0-AqJ3nfInTTiDXDjU4.woff2)format('woff2');
+      unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(//fonts.gstatic.com/s/roboto/v15/OLffGBTaF0XFOW1gnuHF0Y4P5ICox8Kq3LLUNMylGO4.woff2)format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+    }
 
     html,
     body {
@@ -15,8 +238,8 @@
 
     body {
       background: #ebebeb;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
+      font: 12px Roboto, arial, sans-serif;
+      /*font-size: 16px;*/
       color: #444;
       position: relative;
       -webkit-text-size-adjust: none;
@@ -48,8 +271,52 @@
       font-size: 34px;
     }
 
-    span.ibacordotcom-nav-title {
-      font-size: 20px;
+    span.ibacordotcom-nav-title a {
+      font-size: 15px;
+      overflow: hidden;
+      white-space: nowrap;
+      word-wrap: normal;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      display: block;
+      font-weight: normal;
+      color: #fff;
+    }
+
+    .video-actions {
+      border-top: 1px solid #3a3a3a;
+      margin: 10px 0 0;
+      padding: 7px 0 0 0;
+    }
+
+    div#savePlaylist {
+      font-size: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+
+    .video-details {
+      position: relative;
+      min-height: 37px;
+    }
+
+    .ibacordotcom-vid-top i.fa {
+      opacity: .5;
+      filter: alpha(opacity=50);
+      color: #fff;
+    }
+
+    .ibacordotcom-vid-top i.fa:hover {
+      opacity: .6;
+      filter: alpha(opacity=60);
+    }
+
+    .ibacordotcom-vid-top i.fa:active,
+    .ibacordotcom-vid-top i.fa.active {
+      opacity: .8;
+      filter: alpha(opacity=80);
     }
 
     p {
@@ -167,7 +434,7 @@
       margin-right: 10px
     }
 
-    .ibacordotcom-play {
+    .playlist-item {
       margin: 0;
       padding: 10px 0 10px;
       display: block;
@@ -176,28 +443,28 @@
       *overflow: visible;
     }
 
-    .ibacordotcom-play.active {
+    .playlist-item.active {
       background-color: #3a3a3a;
     }
 
-    .ibacordotcom-play.active .item-number {
+    .playlist-item.active .item-number {
       color: #c03636;
       line-height: 40px;
     }
 
-    .ibacordotcom-play.active .ibacordotcom_youtube_thumb {
+    .playlist-item.active .ibacordotcom_youtube_thumb {
       border: 2px solid #c03636;
       box-sizing: border-box;
     }
 
-    .ibacordotcom-play img {
+    .playlist-item img {
       -webkit-user-drag: none;
     }
 
     div.ibacordotcom-vid-top {
       color: #c0c0c0;
       background: #1a1a1a;
-      padding: 20px;
+      padding: 20px 20px 10px;
       display: block;
       overflow: hidden;
       *overflow: visible;
@@ -208,7 +475,7 @@
       background: #222222;
       display: block;
       overflow: auto;
-      height: 500px;
+      height: 382px;
     }
 
     span.ibacordotcom-author {
@@ -223,7 +490,7 @@
       display: inline-block;
     }
 
-    div.ibacordotcom-play:hover {
+    div.playlist-item:hover {
       background: #525252;
     }
 
@@ -235,16 +502,43 @@
       border: 2px solid #e42b28;
     }
 
-    .ibacordotcom_vid_prev,
-    .ibacordotcom_vid_next,
-    .ibacordotcom-play {
+    .ibacordotcom_vid_icon,
+    .playlist-item {
       cursor: pointer;
       font-size: 13px;
     }
 
-    iframe.ibacordotcom-vid-iframe {
+    .ibacordotcom_vid_icon {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 1.5em;
+      padding: 5px 0;
+    }
+
+    span.ibacordotcom-vid-by,
+    span.ibacordotcom-nav-title {
+      display: block;
+      margin-top: 5px;
+    }
+
+    span.ibacordotcom-vid-by a {
+      color: #878787;
+      margin-right: 2px;
+    }
+
+    span.ibacordotcom-vid-by a::after {
+      content: '\002022';
+      padding-left: 5px;
+    }
+
+    .ibacordotcom-vid-top i.ibacordotcom_vid_icon:last-child {
+      margin: 0;
+    }
+
+    .ibacordotcom-vid-iframe {
       width: 100%;
-      height: 500px
+      height: 500px;
+      background: #010001;
     }
 
     div#playlistWrapper::-webkit-scrollbar {
@@ -276,7 +570,7 @@
       margin-bottom: -10px;
     }
 
-    div.ibacordotcom-play:hover .drag-handler-wrapper {
+    div.playlist-item:hover .drag-handler-wrapper {
       background-color: #353535;
     }
 
@@ -284,6 +578,15 @@
       background: url(img/drag-handler.png) center center no-repeat;
       width: 20px;
       height: 31px;
+    }
+
+    .drag-placeholder {
+      height: 60px;
+      line-height: 1.2em;
+      background: #010001;
+      border-bottom: 2px solid rgb(105, 105, 105);
+      box-sizing: border-box;
+      border-top: 2px solid rgb(105, 105, 105);
     }
 
     @media only screen and (min-width: 960px) and (max-width: 1045px) {
@@ -391,24 +694,30 @@
     </div>
     <div class="ibacordotcom-unit ibacordotcom-vid-katuhu">
       <div class="ibacordotcom_youtube_channels">
+        <div class="ibacordotcom-vid-top">
+
+          <div class="video-details">
+            <span class="ibacordotcom-nav-title">
+                <a href="#" target="_BLANK" id="current-playing-name"></a>
+            </span>
+            <span class="ibacordotcom-vid-by">
+              <a href="#" target="_BLANK" id="channel-name"></a>
+              <span id="video-length-index"></span>
+            </span>
+            <div id="savePlaylist">
+              <i class="fa fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="video-actions">
+            <i class="fa fa-random ibacordotcom_vid_icon shuffle-handler" title="Shuffle playlist"></i>
+            <i class="fa fa-repeat ibacordotcom_vid_icon repeat-handler" title="Repeat playlist"></i>
+          </div>
+
+        </div>
         <!-- PLAYLIST -->
         <div class="ibacordotcom-vid-bottom" id="playlistWrapper">
-          <!-- <div class="ibacordotcom-play" data-vvv="ZizjCT4bN1o">
-            <div class="ibacordotcom_youtube_thumb">
-              <img src="https://i.ytimg.com/vi/ZizjCT4bN1o/default.jpg" alt="ibacor">
-              <span class="ibacordotcom-vid-tm0"></span>
-            </div>Music Videos In Real Life - Duke Dumont - I Got U ft. Jax Jones
-          </div>
-          <div class="ibacordotcom-play" data-vvv="lm6UqjsNUj8">
-            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/lm6UqjsNUj8/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm1"></span></div>Music Videos In Real Life - Calvin Harris - Summer</div>
-          <div class="ibacordotcom-play" data-vvv="IVx1eh4vwi0">
-            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/IVx1eh4vwi0/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm2"></span></div>Music Videos In Real Life - Sigala - Sweet Lovin' ft. Bryn Christopher</div>
-          <div class="ibacordotcom-play" data-vvv="rc24nRxZQEg">
-            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/rc24nRxZQEg/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm3"></span></div>VVV - Nina Nesbitt: What Are You Talking About?!</div>
-          <div class="ibacordotcom-play" data-vvv="kxqSjDt0-Lc">
-            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/kxqSjDt0-Lc/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm4"></span></div>VVV with ZAYN, Justin Bieber, Nina Nesbitt, One Direction, Jack Garratt, Grimes & more...</div>
-          <div class="ibacordotcom-play" data-vvv="kxqSjDt0-Lc">
-            <div class="ibacordotcom_youtube_thumb"><img src="https://i.ytimg.com/vi/kxqSjDt0-Lc/default.jpg" alt="ibacor"><span class="ibacordotcom-vid-tm4"></span></div>VVV with ZAYN, Justin Bieber, Nina Nesbitt, One Direction, Jack Garratt, Grimes & more...</div> -->
+
         </div>
 
       </div>
@@ -417,21 +726,30 @@
 
 
 
-
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="http://www.youtube.com/player_api"></script>
 
   <script>
     // create youtube player
     var player;
+    var unshuffledVideoIds = [];
     var videoIds = ["iwYGi7YG4Js", "OQlnsg1jw_o", "yiuYmPDLbk0"];
     var youtubeApiKey = "AIzaSyCbNX5WnwPLn30DMaDZlJd0gAYoEqYm1BM";
     var playlistWrapper = document.getElementById("playlistWrapper");
     var currentPlaylistData = {};
+    var repeatPlayList = false;
+    var shufflePlayList = false;
     var YToptions = {
       events: {
         'onStateChange': onPlayerStateChange
       }
     };
+    var sortableOptions = {
+      handle: '.drag-handler-wrapper',
+      placeholder: 'drag-placeholder',
+      stop: onPlaylistReorder
+    }
     var currentPlaying = {}
 
     function clone(obj) {
@@ -482,9 +800,27 @@
       player = new YT.Player('player', options);
     }
 
+    function getChanelLink(channelId) {
+      return ("//www.youtube.com/channel/" + channelId)
+    }
+
+    function getVideoLink(videoId) {
+      return ("//www.youtube.com/watch?v=" + videoId)
+    }
+
     function loadVideo(videoId) {
-      currentPlaying.id = videoId;
-      currentPlaying.index = videoIds.indexOf(videoId);
+      each(currentPlaylistData.items, function(index, current) {
+        if (current.id == videoId) {
+          currentPlaying.id = videoId;
+          currentPlaying.index = videoIds.indexOf(videoId);
+          currentPlaying.title = current.snippet.title;
+          currentPlaying.videoUrl = getVideoLink(videoId);
+          currentPlaying.channelTitle = current.snippet.channelTitle;
+          currentPlaying.channelLink = getChanelLink(current.snippet.channelId);
+          return false;
+        }
+      })
+
       player.loadVideoById(videoId);
     }
 
@@ -495,10 +831,13 @@
       refreshPlaylist();
     }
 
-    function refreshPlaylist() {
-      var video_ids = videoIds.join(",");
-      var apiUrl = "https://www.googleapis.com/youtube/v3/videos?id=" + video_ids + "&key=" + youtubeApiKey + "&part=snippet";
+    function getApiUrl(videoIds) {
+      return ("https://www.googleapis.com/youtube/v3/videos?id=" + videoIds + "&key=" + youtubeApiKey + "&part=snippet");
+    }
 
+
+    function refreshPlaylist() {
+      var apiUrl = getApiUrl(videoIds.join(","));
       var xhr = new XMLHttpRequest();
       xhr.onload = function() {
         var response = JSON.parse(xhr.responseText);
@@ -515,10 +854,12 @@
         var nextVideoId = videoIds[(currentPlaying.index + 1)];
         if (typeof nextVideoId != "undefined") {
           loadVideo(nextVideoId);
+        } else if (repeatPlayList && (currentPlaying.index == (videoIds.length - 1))) {
+          var videoId = videoIds[0];
+          loadVideo(videoId);
         } else {
           currentPlaying.id = "";
           currentPlaying.index = 0;
-          refreshPlaylistView();
         }
       }
     }
@@ -530,14 +871,15 @@
         //  console.log("items", index, current);
         appendVideo(current, index);
       })
+      addReorderingToPlaylist();
     }
 
-    function appendVideo(data, index) {
 
+    function appendVideo(data, index) {
       var indexOrIcon = (currentPlaying.id == data.id) ? "&#9654;" : (parseInt(index) + 1);
       var activeClass = (currentPlaying.id == data.id) ? "active" : "";
 
-      var template = '<div class="ibacordotcom-play ' + activeClass + '" data-index="' + videoIds.indexOf(data.id) + '" data-vid="' + data.id + '">\
+      var template = '<div class="playlist-item ' + activeClass + '" data-index="' + videoIds.indexOf(data.id) + '" data-vid="' + data.id + '">\
       <div class="item-number">' + indexOrIcon +
         '</div>\
       <div class="drag-handler-wrapper"><div class="drag-handler"></div></div>\
@@ -570,15 +912,87 @@
     function onPlayerStateChange(event) {
       console.log("playerstateChange", event, event.data)
       if (event.data === -1) {
-        refreshPlaylistView();
+        onPlaylistReorder();
       }
       if (event.data === 0) {
         playNext();
       }
     }
 
+    //to initialize sortable on playlist
+    function addReorderingToPlaylist() {
+      if (!$(playlistWrapper).hasClass('ui-sortable')) {
+        $(playlistWrapper).sortable(sortableOptions);
+      }
+    }
 
-    //binding the click event for playlist items
+    //stop event of sortable on playlist
+    function onPlaylistReorder(event, ui) {
+      videoIds = $(playlistWrapper).sortable("toArray", {
+        attribute: 'data-vid'
+      });
+      each(videoIds, function(index, current) {
+        if (currentPlaying.id == current) {
+          currentPlaying.index = parseInt(index);
+        }
+      });
+      reAddIndexesToPlaylist();
+      setUpCurrentPlayingDetails();
+    }
+
+    //adding index and current state ot view
+    function reAddIndexesToPlaylist() {
+      $(playlistWrapper).find(">div").removeClass("active").each(function(index, current) {
+        var currentVideoId = $(this).attr("data-vid");
+        var indexOrIcon = (currentPlaying.id == currentVideoId) ? "&#9654;" : (parseInt(index) + 1);
+        var activeClass = (currentPlaying.id == currentVideoId) ? "active" : "";
+
+        //setup index
+        $(this).attr("data-index", index);
+
+        //current state
+        $(this).addClass(activeClass);
+        $(this).find(".item-number").html(indexOrIcon);
+      })
+    }
+
+    function setUpCurrentPlayingDetails() {
+      //setup video details
+      $("#current-playing-name").attr("href", currentPlaying.videoUrl).text(currentPlaying.title);
+      //setup chanel details
+      $("#channel-name").attr("href", currentPlaying.channelLink).text(currentPlaying.channelTitle);
+      //setup video index and total
+      $("#video-length-index").text((currentPlaying.index + 1) + "/" + videoIds.length + " videos")
+    }
+
+
+    function shuffleVideosArray(videoIdsArray) {
+      var currentIndex = videoIdsArray.length;
+      var temporaryValue;
+      var randomIndex;
+
+      //remove the current as it should always come on first index;
+      videoIdsArray.splice(videoIdsArray.indexOf(currentPlaying.id), 1)
+
+      // While there remain elements to shuffle
+      while (0 !== currentIndex) {
+        // Pick a remaining element
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        // And swap it with the current element
+        temporaryValue = videoIdsArray[currentIndex];
+        videoIdsArray[currentIndex] = videoIdsArray[randomIndex];
+        videoIdsArray[randomIndex] = temporaryValue;
+      }
+
+      //add the current video id on first index;
+      videoIdsArray.unshift(currentPlaying.id);
+
+      return videoIdsArray;
+    }
+
+
+    //binding the click events
     document.addEventListener("click", function(event) {
       // retrieve an event if it was called manually
       event = event || window.event;
@@ -586,7 +1000,10 @@
       // retrieve the related element
       var el = event.target || event.srcElement;
 
-      if (el.className.split(" ").indexOf("ibacordotcom-play") != -1) {
+      var classes = el.className.split(" ");
+
+      //binding the click event for playlist items
+      if (classes.indexOf("playlist-item") != -1) {
 
         //get video details
         var videoId = el.getAttribute("data-vid");
@@ -594,6 +1011,42 @@
 
         //load the selected video
         if (currentPlaying.id != videoId) loadVideo(videoId);
+      }
+
+      //binding the click event for repeat playlist
+      if (classes.indexOf("repeat-handler") != -1) {
+
+        //toggle playlist variable
+        repeatPlayList = !repeatPlayList;
+
+        //handle classes
+        if (repeatPlayList) {
+          $(el).addClass("active")
+        } else {
+          $(el).removeClass("active")
+        }
+
+      }
+
+      //binding the click event for shuffle event
+      if (classes.indexOf("shuffle-handler") != -1) {
+
+        //toggle playlist variable
+        shufflePlayList = !shufflePlayList;
+
+        //handle classes
+        if (shufflePlayList) {
+          $(el).addClass("active");
+          unshuffledVideoIds = videoIds.slice(0);
+          videoIds = shuffleVideosArray(videoIds);
+
+        } else {
+          $(el).removeClass("active");
+          videoIds = unshuffledVideoIds;
+        }
+
+
+        refreshPlaylist();
       }
 
     });
