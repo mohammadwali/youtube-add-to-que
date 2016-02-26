@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Youtube playlist</title>
-  </head>
-  <body>
-    <div id="player"></div>
 
-        <script src="http://www.youtube.com/player_api"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Youtube Current Que</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/app.css" media="screen" charset="utf-8">
+</head>
 
-        <script src="js/app.js"></script>
-  </body>
+<body>
+
+
+
+  <div id="content-wrapper">
+    <div class="ibacordotcom-unit ibacordotcom-vid-kenca">
+      <div class="ibacordotcom_vid_play">
+        <div class="ibacordotcom-vid-iframe" id="player"></div>
+      </div>
+    </div>
+    <div class="ibacordotcom-unit ibacordotcom-vid-katuhu">
+      <div class="ibacordotcom_youtube_channels">
+        <div class="ibacordotcom-vid-top">
+
+          <div class="video-details">
+            <span class="ibacordotcom-nav-title">
+                  <a href="#" target="_BLANK" id="current-playing-name"></a>
+              </span>
+            <span class="ibacordotcom-vid-by">
+                <a href="#" target="_BLANK" id="channel-name"></a>
+                <span id="video-length-index"></span>
+            </span>
+            <div id="savePlaylist">
+              <i class="fa fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="video-actions">
+            <i class="fa fa-random ibacordotcom_vid_icon shuffle-handler" title="Shuffle playlist"></i>
+            <i class="fa fa-repeat ibacordotcom_vid_icon repeat-handler" title="Repeat playlist"></i>
+          </div>
+
+        </div>
+        <!-- PLAYLIST -->
+        <div class="ibacordotcom-vid-bottom" id="playlistWrapper">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/jquery-ui.1.12.0-beta.1.min.js"></script>
+  <script src="https://www.youtube.com/player_api"></script>
+  <script src="js/app.js"></script>
+</body>
+
 </html>
